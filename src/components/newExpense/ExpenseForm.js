@@ -4,24 +4,24 @@ import "./ExpenseForm.css"
 
 const ExpenseForm = () => {
 
-  // using 3 states is okay but its not reliable 
-  // const [enteredTitle, setEnteredTitle] = userState('');
-  // const [enteredAmount, setEnteredAmount] = userState('');
-  // const [enteredDate, setEnteredDate] = userState('');
+  using 3 states is okay but its not reliable 
+  const [enteredTitle, setEnteredTitle] = userState('');
+  const [enteredAmount, setEnteredAmount] = userState('');
+  const [enteredDate, setEnteredDate] = userState('');
 
-  // // so another approach would be
+  // so another approach would be
 
 
 
-  // const titleChangeHandler = (event)=>{
-  //   setEnteredTitle;
-  // }
-  // const ammountChangeHandler = (event)=>{
-  //   setEnteredAmount;
-  // }
-  // const dateChangeHandler = (event)=>{
-  //   setEnteredDate;
-  // }
+  const titleChangeHandler = (event)=>{
+    setEnteredTitle;
+  }
+  const ammountChangeHandler = (event)=>{
+    setEnteredAmount;
+  }
+  const dateChangeHandler = (event)=>{
+    setEnteredDate;
+  }
 
   //------------------------------------
 
@@ -55,37 +55,37 @@ const ExpenseForm = () => {
 //better aproach then the above
   //-----------------------------------------
 //well all above approches willl work but in this approach we are passing a call back
-  const [userInput,setUserInput] = useState({
-    enteredTitle: " ",
-    enteredAmount:" ",
-    enteredDate:" "
-  })
+  // const [userInput,setUserInput] = useState({
+  //   enteredTitle: " ",
+  //   enteredAmount:" ",
+  //   enteredDate:" "
+  // })
 
-  const titleChangeHandler = (event)=>{
+  // const titleChangeHandler = (event)=>{
     
-    setUserInput((prevState)=>{
-      return {
-        ...prevState,
-        enteredTitle:event.target.value
-      }
-    });
-  }
-  const ammountChangeHandler = (event)=>{
-    setUserInput((prevState)=>{
-      return {
-        ...prevState,
-        enteredAmount:event.target.value
-      }
-    });
-  }
-  const dateChangeHandler = (event)=>{
-    setUserInput((prevState)=>{
-      return {
-        ...prevState,
-        enteredDate:event.target.value
-      }
-    });
-  }
+  //   setUserInput((prevState)=>{
+  //     return {
+  //       ...prevState,
+  //       enteredTitle:event.target.value
+  //     }
+  //   });
+  // }
+  // const ammountChangeHandler = (event)=>{
+  //   setUserInput((prevState)=>{
+  //     return {
+  //       ...prevState,
+  //       enteredAmount:event.target.value
+  //     }
+  //   });
+  // }
+  // const dateChangeHandler = (event)=>{
+  //   setUserInput((prevState)=>{
+  //     return {
+  //       ...prevState,
+  //       enteredDate:event.target.value
+  //     }
+  //   });
+  // }
   return (
     <form>
       <div className="new-expense__controls">
