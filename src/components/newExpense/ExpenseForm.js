@@ -4,90 +4,36 @@ import "./ExpenseForm.css"
 
 const ExpenseForm = () => {
 
-  using 3 states is okay but its not reliable 
-  const [enteredTitle, setEnteredTitle] = userState('');
-  const [enteredAmount, setEnteredAmount] = userState('');
-  const [enteredDate, setEnteredDate] = userState('');
 
-  // so another approach would be
+  const [enteredTitle, setEnteredTitle] = useState('');
+  const [enteredAmount, setEnteredAmount] = useState('');
+  const [enteredDate, setEnteredDate] = useState('');
+
 
 
 
   const titleChangeHandler = (event)=>{
-    setEnteredTitle;
+    setEnteredTitle(event.target.value);
   }
   const ammountChangeHandler = (event)=>{
-    setEnteredAmount;
+    setEnteredAmount(event.target.value);
   }
   const dateChangeHandler = (event)=>{
-    setEnteredDate;
+    setEnteredDate(event.target.value);
   }
 
-  //------------------------------------
+  const submitHandeler = (event)=>{
+    event.preventDefault();
 
-  //better approach
-
-  // const [userInput,setUserInput] = useState({
-  //   enteredTitle: " ",
-  //   enteredAmount:" ",
-  //   enteredDate:" "
-  // })
-
-  // // const titleChangeHandler = (event)=>{
-    
-  // //   setUserInput({
-  // //     ...userInput,
-  // //     enteredTitle:event.target.value
-  // //   });
-  // // }
-  // // const ammountChangeHandler = (event)=>{
-  // //   setUserInput({
-  // //     ...userInput,
-  // //     enteredAmount:event.target.value
-  // //   });
-  // // }
-  // // const dateChangeHandler = (event)=>{
-  // //   setUserInput({
-  // //     ...userInput,
-  // //     enteredDate:event.target.value
-  // //   });
-  // // }
-//better aproach then the above
-  //-----------------------------------------
-//well all above approches willl work but in this approach we are passing a call back
-  // const [userInput,setUserInput] = useState({
-  //   enteredTitle: " ",
-  //   enteredAmount:" ",
-  //   enteredDate:" "
-  // })
-
-  // const titleChangeHandler = (event)=>{
-    
-  //   setUserInput((prevState)=>{
-  //     return {
-  //       ...prevState,
-  //       enteredTitle:event.target.value
-  //     }
-  //   });
-  // }
-  // const ammountChangeHandler = (event)=>{
-  //   setUserInput((prevState)=>{
-  //     return {
-  //       ...prevState,
-  //       enteredAmount:event.target.value
-  //     }
-  //   });
-  // }
-  // const dateChangeHandler = (event)=>{
-  //   setUserInput((prevState)=>{
-  //     return {
-  //       ...prevState,
-  //       enteredDate:event.target.value
-  //     }
-  //   });
-  // }
+    const expenseData = {
+      title:enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate)
+    }
+    console.log(expenseData)
+  }
   return (
-    <form>
+    <form onSubmit={submitHandeler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
             <label>Title</label>
