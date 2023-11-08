@@ -27,6 +27,34 @@ const ExpenseForm = () => {
 
   //better approach
 
+  // const [userInput,setUserInput] = useState({
+  //   enteredTitle: " ",
+  //   enteredAmount:" ",
+  //   enteredDate:" "
+  // })
+
+  // // const titleChangeHandler = (event)=>{
+    
+  // //   setUserInput({
+  // //     ...userInput,
+  // //     enteredTitle:event.target.value
+  // //   });
+  // // }
+  // // const ammountChangeHandler = (event)=>{
+  // //   setUserInput({
+  // //     ...userInput,
+  // //     enteredAmount:event.target.value
+  // //   });
+  // // }
+  // // const dateChangeHandler = (event)=>{
+  // //   setUserInput({
+  // //     ...userInput,
+  // //     enteredDate:event.target.value
+  // //   });
+  // // }
+//better aproach then the above
+  //-----------------------------------------
+//well all above approches willl work but in this approach we are passing a call back
   const [userInput,setUserInput] = useState({
     enteredTitle: " ",
     enteredAmount:" ",
@@ -35,21 +63,27 @@ const ExpenseForm = () => {
 
   const titleChangeHandler = (event)=>{
     
-    setUserInput({
-      ...userInput,
-      enteredTitle:event.target.value
+    setUserInput((prevState)=>{
+      return {
+        ...prevState,
+        enteredTitle:event.target.value
+      }
     });
   }
   const ammountChangeHandler = (event)=>{
-    setUserInput({
-      ...userInput,
-      enteredAmount:event.target.value
+    setUserInput((prevState)=>{
+      return {
+        ...prevState,
+        enteredAmount:event.target.value
+      }
     });
   }
   const dateChangeHandler = (event)=>{
-    setUserInput({
-      ...userInput,
-      enteredDate:event.target.value
+    setUserInput((prevState)=>{
+      return {
+        ...prevState,
+        enteredDate:event.target.value
+      }
     });
   }
   return (
