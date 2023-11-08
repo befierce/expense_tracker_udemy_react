@@ -3,18 +3,54 @@ import "./ExpenseForm.css"
 
 
 const ExpenseForm = () => {
-  const [enteredTitle, setEnteredTitle] = userState('');
-  const [enteredAmount, setEnteredAmount] = userState('');
-  const [enteredDate, setEnteredDate] = userState('');
+
+  // using 3 states is okay but its not reliable 
+  // const [enteredTitle, setEnteredTitle] = userState('');
+  // const [enteredAmount, setEnteredAmount] = userState('');
+  // const [enteredDate, setEnteredDate] = userState('');
+
+  // // so another approach would be
+
+
+
+  // const titleChangeHandler = (event)=>{
+  //   setEnteredTitle;
+  // }
+  // const ammountChangeHandler = (event)=>{
+  //   setEnteredAmount;
+  // }
+  // const dateChangeHandler = (event)=>{
+  //   setEnteredDate;
+  // }
+
+  //------------------------------------
+
+  //better approach
+
+  const [userInput,setUserInput] = useState({
+    enteredTitle: " ",
+    enteredAmount:" ",
+    enteredDate:" "
+  })
 
   const titleChangeHandler = (event)=>{
-    setEnteredTitle;
+    
+    setUserInput({
+      ...userInput,
+      enteredTitle:event.target.value
+    });
   }
   const ammountChangeHandler = (event)=>{
-    setEnteredAmount;
+    setUserInput({
+      ...userInput,
+      enteredAmount:event.target.value
+    });
   }
   const dateChangeHandler = (event)=>{
-    setEnteredDate;
+    setUserInput({
+      ...userInput,
+      enteredDate:event.target.value
+    });
   }
   return (
     <form>
