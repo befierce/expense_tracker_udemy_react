@@ -5,7 +5,6 @@ import { useState } from "react";
 function ExpenseItem(props) {
   
   const [title,setTitle] = useState(props.title);
-  console.log("kisssa")
   const clickHandler = () => {
     setTitle("updated!!");
   };
